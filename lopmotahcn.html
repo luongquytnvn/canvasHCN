@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lớp mô tả hình chữ nhật</title>
+</head>
+<body>
+<canvas id="myCanvas" width="1366px" height="768px" style="border: aqua 1px solid"></canvas>
+<script>
+    let Rectangle = function (rong, dai) {
+        this.rong = rong;
+        this.dai = dai;
+        this.getArea = function () {
+            return this.rong * this.dai;
+        };
+        this.getCircuit = function () {
+            return (this.dai + this.rong) * 2;
+
+        };
+        this.setrong = function (rong) {
+            this.rong = rong;
+        };
+        this.setdai = function (dai) {
+            this.dai = dai;
+        }
+    };
+    let rectangle = new Rectangle(200,300);
+    let area = rectangle.getArea();
+    let circuit = rectangle.getCircuit();
+    let ctx = document.getElementById('myCanvas').getContext('2d');
+    rectangle.setrong(400);
+    rectangle.setdai(600);
+    let rong = rectangle.rong;
+    let dai = rectangle.dai;
+    ctx.beginPath();
+    ctx.strokeRect(100,100,100+dai,100+rong);
+
+</script>
+</body>
+</html>
